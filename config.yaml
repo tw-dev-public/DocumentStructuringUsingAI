@@ -1,0 +1,32 @@
+# LLM configuration settings
+llm_prompt: |
+  Extract the following fields: user_name, issue_type, priority. 
+  Return ONLY JSON. Do not include markdown, explanation, or commentary.
+
+# The schema used to validate LLM output
+json_schema:
+  name: "llm_json_schema"
+  strict: true
+  schema:
+    type: object
+    properties:
+      user_name:
+        type: string
+      issue_type:
+        type: string
+      priority:
+        type: string
+    required:
+      - user_name
+      - issue_type
+      - priority
+    additionalProperties: false
+
+# Number of LLM processing attempts permitted per file
+retry_limit: 4
+
+# Specify Ollama model
+ollama_model: "gemma3"
+
+# Specify OpenAI model
+openai_model: "gpt-4.1-mini"
