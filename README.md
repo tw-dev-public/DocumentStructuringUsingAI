@@ -132,13 +132,13 @@ Runtime behavior is controlled through configuration settings, including:
 Place source documents into the `input` directory, then run:
 
 ```bash
-python main.py --llm-model <model_name>
+python main.py --platform <model_name>
 ```
 
 ### Example
 
 ```bash
-python main.py --ollama
+python main.py --platform ollama
 ```
 
 ---
