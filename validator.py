@@ -2,9 +2,9 @@ import logging
 
 from jsonschema import validate, ValidationError
 
-def validate_data(valid_schema, check_schema) -> bool:
+def validate_data(check_schema, valid_schema) -> bool:
     try:
-        validate(valid_schema, check_schema)
+        validate(check_schema, valid_schema)
         return True
     except ValidationError as e:
         logging.warning(e)

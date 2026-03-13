@@ -2,7 +2,6 @@ import logging
 import ollama
 from ollama import ChatResponse
 import llm_output_processor
-from main import load_config
 
 
 # Processing using Ollama LLM locally.

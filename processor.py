@@ -13,6 +13,10 @@ def import_files(filepath: Path):
         for file_path in files:
             text = file_path.read_text(encoding='utf-8')
             results.append((file_path.name, text))
+        if results is None or len(results) == 0:
+            logging.error(f'No text files found in {filepath}')
+            return []
         return results
     except Exception as e:
         logging.error("Import Error: {}".format(e))
+        return []

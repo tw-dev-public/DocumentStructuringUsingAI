@@ -51,7 +51,7 @@ if __name__ == '__main__':
         while attempts < config["retry_limit"]:
             try:
                 llm_return = process_llm(text, args.platform)
-                if validator.validate_data(config["json_schema"], llm_return):
+                if validator.validate_data(llm_return, config["json_schema"]):
                     processed_files.append(llm_return)
                     logging.info(f"Processed file: {filename}")
                     break

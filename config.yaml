@@ -26,7 +26,7 @@ json_schema:
 retry_limit: 4
 
 # Specify Ollama model
-ollama_model: "gemma3"
+ollama_model: "qwen2.5-coder:7b"
 
 # Specify OpenAI model
 openai_model: "gpt-4.1-mini"

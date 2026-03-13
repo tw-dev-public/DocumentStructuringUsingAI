@@ -41,9 +41,9 @@ def process_openai(prompt: str, text: str, json_schema_param, model):
         # Check if the model's output included restricted content, so the generation of JSON was halted and may be partial
         elif response.choices[0].message.refusal == "content_filter":
             logging.warning("OpenAI refused: model's output included restricted content, so the generation of JSON was halted and may be partial. Text: " + text)
-        elif response.choices[0].message.refusal == "stop":
+        # elif response.choices[0].message.refusal == "stop":
             # In this case the model has either successfully finished generating the JSON object according to your schema, or the model generated one of the tokens you provided as a "stop token"
-            logging.warning("OpenAI refused: model has either successfully finished generating the JSON object according to your schema, or the model generated one of the tokens you provided as a stop token. Text: " + text)
+            # logging.warning("OpenAI refused: model has either successfully finished generating the JSON object according to your schema, or the model generated one of the tokens you provided as a stop token. Text: " + text)
         elif response.choices[0].message.refusal is not None:
             logging.warning("OpenAI refused the request. Text: " + text + " Response: " + response.choices[0].message.content)
 

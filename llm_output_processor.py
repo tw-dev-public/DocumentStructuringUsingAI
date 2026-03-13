@@ -6,7 +6,7 @@ def extract_json(text):
     try:
         return json.loads(text)
     except:
-        match = re.search(r'"{.*}"', text, re.DOTALL)
+        match = re.search(r'\{.*', text, re.DOTALL)
         if match:
             return json.loads(match.group(0))
         raise
