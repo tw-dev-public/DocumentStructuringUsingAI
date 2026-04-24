@@ -28,8 +28,22 @@ The project emphasizes **reliability**, **observability**, and **provider flexib
 
 ---
 
+## Live Demo
+
+Send any unstructured text and receive validated structured JSON back.
+
+curl -X POST https://s6g16bm9p6.execute-api.us-east-1.amazonaws.com/process \
+  -H "Content-Type: application/json" \
+  -d '{"text": "Jane Smith: My keyboard is on fire"}'
+
+// Returns:
+{"user_name": "Jane Smith", "issue_type": "keyboard on fire", "priority": "high"}
+
+---
+
 ## Architecture
 
+Local Version (this repo):
 ```
 Input Files
      ↓
@@ -45,7 +59,20 @@ Retry Handling
      ↓
 Structured Output + Reporting
 ```
-
+Live AWS Demo Version:
+```
+HTTP POST (text)
+      ↓
+API Gateway
+      ↓
+Lambda
+      ↓
+Secrets Manager (OpenAI key)
+      ↓
+OpenAI API
+      ↓
+Returns structured JSON
+```
 ---
 
 ## Reliability Design
